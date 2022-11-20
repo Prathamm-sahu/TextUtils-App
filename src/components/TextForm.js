@@ -52,17 +52,17 @@ export default function TextForm(props) {
                 <div className="mb-3">
                   <textarea id="myBox" cols="100" rows="8" value={text} onChange={handleOnChange} style={{backgroundColor: props.mode==="dark"?'#072039':'white', color: props.mode==="dark"?"white":"#072039"}}></textarea>  
                 </div>
-                <button type="submit" className="btn btn-primary mx-2" onClick={handleUpClick}>Convert to Uppercase</button>
-                <button type="submit" className="btn btn-primary mx-2" onClick={handleLoClick}>Convert to Lowercase</button>
-                <button type="submit" className="btn btn-primary mx-2" onClick={replaceAllOccurence}>Replace all occurence</button>
-                <button type="submit" className="btn btn-primary mx-2" onClick={handleCopy}>Copy text</button>  
-                <button type="submit" className="btn btn-primary mx-2" onClick={handleExtraSpaces}>Remove Extra Spaces</button>  
+                <button type="submit" className="btn btn-primary mx-2 my-1" onClick={handleUpClick}>Convert to Uppercase</button>
+                <button type="submit" className="btn btn-primary mx-2 my-1" onClick={handleLoClick}>Convert to Lowercase</button>
+                <button type="submit" className="btn btn-primary mx-2 my-1" onClick={replaceAllOccurence}>Replace all occurence</button>
+                <button type="submit" className="btn btn-primary mx-2 my-1" onClick={handleCopy}>Copy text</button>  
+                <button type="submit" className="btn btn-primary mx-2 my-1" onClick={handleExtraSpaces}>Remove Extra Spaces</button>  
             </form>
 
             <div className="container my-3">
                 <h3>Your text summary</h3>
-                <p>{text.split(" ").length -1} words and {text.length} characters</p>
-                <p>{0.008* text.split(" ").length} Minutes read</p>
+                <p>{text.split(" ").filter((element) => {return element.length!==0}).length} words and {text.length} characters</p>
+                <p>{0.008* text.split(" ").filter((element) => {return element.length!==0}).length} Minutes read</p>
                 <h3>Preview</h3>
                 <p>{text.length>0?text:"Enter Something in the text box to Preview over here"}</p>
             </div>
